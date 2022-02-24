@@ -1,0 +1,19 @@
+<h1>Add New Music</h1>
+<form (submit)="onSubmit(myForm)" #myForm='ngForm' with="400px">
+    Music Id::     <input type="text"class="form-group"  name="musicId"  [(ngModel)]="newMusic.musicId" #musicId='ngModel'><br>
+
+    Music Name:: <input type="text" class="form-group" required minlength="5" [(ngModel)]="newMusic.musicName" #musicName='ngModel' name="musicName"><br>
+    <span *ngIf="!musicName.valid && musicName.touched">
+    <span *ngIf="musicName.errors?.required" >Name is Required</span>
+</span>
+    Music Genre:: <input type="text" class="form-group" [(ngModel)]="newMusic.musicGenre" #musicGenre='ngModel' name="musicGenre"><br>
+
+    Music Singer:: <input type="text" class="form-group" [(ngModel)]="newMusic.musicSinger" #musicSinger='ngModel' name="musicSinger"><br>
+
+    Music Image:: <input type="file" class="form-group" [(ngModel)]="newMusic.musicImage" #musicImage='ngModel' name="musicImage"><br>
+
+    Music File:: <input type="file" class="form-group" [(ngModel)]="newMusic.musicFile" #musicFile='ngModel' name="musicFile"><br>
+
+
+<button type="submit" [disabled]="!myForm.form.valid">Add Music</button>
+</form>
